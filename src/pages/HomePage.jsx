@@ -1,11 +1,18 @@
 import React from "react";
 import FooterC from "../components/FooterC";
-
+import PublicidadC from "../components/PublicidadC";
 const HomePage = () => {
 
   return (
+
   <>
-    <FooterC />
+      Navbar <br />
+      Carrosusel <br />
+      Grilla de Productos <br />
+      etc... <br />
+
+      <PublicidadC />
+      <FooterC />
   </>
   )
 
