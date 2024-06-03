@@ -4,6 +4,8 @@ import CardC from "../components/CardC"
 import { products } from "../helpers/products";
 import { useState } from 'react';
 import CarrouselC from '../components/CarrouselC';
+import FooterC from '../components/FooterC'
+
 
 const HomePage = () => {
 const [productos, setProductos] = useState ([]);
@@ -36,8 +38,10 @@ useEffect(() => {
         </Row>
       </Container>
     
+    <FooterC/>
     </>
   );
+
 };
 
 export default HomePage;
