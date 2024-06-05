@@ -1,0 +1,29 @@
+.btn-1{
+    background-color:#D00000;
+    font-weight: bolder;
+    color: aliceblue;
+  }
+  
+  
+  .btn-2{
+    background-color: #55A630;
+    font-weight: bolder;
+    color: aliceblue;
+  }
+  
+  
+  
+  @media (max-width: 576px) { 
+    .btn-1{
+      background-color: #D00000;
+      padding: 2px 3px;
+      font-weight: bolder;
+      color: aliceblue;
+    }
+    .btn-2{
+      background-color: #55A630;
+      padding: 2px 3px;
+      font-weight: bolder;
+      color: aliceblue;
+    }
+  }
