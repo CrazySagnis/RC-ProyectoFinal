@@ -9,7 +9,7 @@ import logoFullMarket from "../assets/img/logo Full Market.jpg"
 const FooterC = () => {
   return (
     <footer>   
-    <div className="conteiner-fluid fixed-bottom">
+    <div className="conteiner-fluid">
       <div className="row">
             <div className="pie_izq col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4 pt-2 d-flex justify-content-around">
                  <a className="item_izq ms-4" href="./index.html"><img className="img-fluid" src={logoFullMarket} alt="logo full market" width="90" height="auto"/></a>
@@ -27,8 +27,8 @@ const FooterC = () => {
              
             </div>
 
-            <div class="pie_der col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 d-none d-sm-block pt-4"> 
-                <h6 class=" d-flex justify-content-center
+            <div className="pie_der col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 d-none d-sm-block pt-4"> 
+                <h6 className=" d-flex justify-content-center
                  w-100">© Todos los derechos reservados</h6>
             </div>
       </div>

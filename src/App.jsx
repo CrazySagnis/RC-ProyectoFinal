@@ -1,9 +1,18 @@
-import React from "react";
-import HomePage from "./pages/HomePage";
-import "./App.css";
-
+import { BrowserRouter } from "react-router-dom";
+import RViews from "./routes/Rviews";
+import FooterC from "./components/FooterC";
+import"./App.css";
 const App = () => {
-  return <HomePage />;
+  
+     return(
+      <>
+      <BrowserRouter>
+          <RViews />
+      </BrowserRouter>
+      <FooterC />
+      </>
+     );
+ 
 };
 
 export default App;
