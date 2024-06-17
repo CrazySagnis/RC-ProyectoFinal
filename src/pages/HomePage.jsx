@@ -13,9 +13,10 @@ const HomePage = () => {
   const [products, setProducts] = useState([]);
 
   const getProductFakeStore = async () => {
-    
-    const data = await useApi();
-    setProducts(data);
+    const productos = await fetch("http://localhost:3001/api/products");
+    const data = await productos.json();
+    console.log(data.allProducts);
+    setProducts(data.allProducts);
   };
 
   useEffect(() => {
@@ -32,16 +33,16 @@ const HomePage = () => {
       
       <CarrouselC/>
     
-      <Container className="conteiner-fluid">
-        <Row>
+      <Container className="conteiner-fluid ms-2">
+        <Row className="d-flex">
           {products.map((product) => (
-            <Col sm="12" md="6" lg="4" key={product.id} className="my-3 mt-5">
+            <Col sm="12" md="6" lg="3" key={product._id} className="my-3 mt-5">
               <CardC
-                imgCard={product.image}
-                titleCard={product.title}
-                productPrice={product.price}                
+                imgCard={product.imagen}
+                titleCard={product.nombre}
+                productPrice={product.precio}                
                 descCard={product.description}
-                idProduct ={product.id}
+                idProduct ={product._id}
               />
             </Col>
           ))}

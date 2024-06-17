@@ -6,9 +6,9 @@ function PublicidadC() {
 
   return (
     <div className="conteiner-fluid">
-      <div class="row">
+      <div className="row">
         <div className='d-none d-sm-block'>
-        <Image class="ala img-fluid mt-5" src={publicidad} alt="logo full market" width="100%"/>
+        <Image className="ala img-fluid mt-5" src={publicidad} alt="logo full market" width="100%"/>
         </div>
 
       </div>
