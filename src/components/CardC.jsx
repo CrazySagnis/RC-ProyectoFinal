@@ -5,6 +5,7 @@ import "../css/CardC.css";
 
 
 const CardC= ({imgCard , titleCard , productPrice, descCard , idProduct})  => {
+  console.log(titleCard);
 return (
     <Card style={{ width: '18rem' }} className='card-principal'>
     <Card.Img variant="top" src={imgCard} />
