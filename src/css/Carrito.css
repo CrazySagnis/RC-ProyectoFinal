@@ -1,0 +1,133 @@
+/* Cart */
+.container-cart-products {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #fff;
+  width: 400px;
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.product-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.info-cart-product {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.titulo-producto-carrito {
+  font-size: 16px;
+  flex: 1;
+}
+
+.precio-producto-carrito {
+  font-weight: 700;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.cantidad-producto-carrito {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.quantity-circle {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.btn-remove {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-close {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-close:hover {
+  stroke: red;
+  cursor: pointer;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  gap: 20px;
+}
+
+.cart-total h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.total-pagar {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.cart-empty {
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.btn-add-to-cart {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.btn-add-to-cart:hover {
+  background-color: #218838;
+}
+
+.favorites-product img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.info-favorites-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
