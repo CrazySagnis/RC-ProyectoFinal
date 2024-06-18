@@ -7,6 +7,7 @@ import RegisterModal1 from "../components/RegistroModal";
 import AdminPage from "../pages/AdminPage";
 import AdminUserPage from "../pages/AdminUserPage";
 import InicioSesionModal from "../components/InicioSesionModal";
+import RecoveryPass from "../pages/RecoveryPass";
 
 const Rviews = () => {
   return (
@@ -18,6 +19,7 @@ const Rviews = () => {
       <Route path="/home-admin" element={<AdminPage />} />
       <Route path="/admin/user" element={<AdminUserPage />} />
       <Route path="/" element={<HomePage />} />
+      <Route path="/recovery" element={<RecoveryPass />} />
     </Routes>
   );
 };

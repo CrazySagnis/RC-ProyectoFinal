@@ -1,9 +1,6 @@
 import PublicidadC from "../components/PublicidadC";
-import {
-  useEffect,
-  useState,
-} from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Col, Container, Nav, Row } from "react-bootstrap";
 import CardC from "../components/CardC";
 import { titlePage } from "../helpers/titlePage";
 import { useApi } from "../helpers/useApi";
@@ -22,17 +19,17 @@ const HomePage = () => {
   useEffect(() => {
     getProductFakeStore();
   }, []);
-  
-  useEffect (() => {
-  titlePage("home");
+
+  useEffect(() => {
+    titlePage("home");
   }, []);
 
   return (
+    <>
+      <Nav />
+      <CarrouselC />
+      <CardC />
 
-  <>
-      
-      <CarrouselC/>
-    
       <Container className="conteiner-fluid ms-2">
         <Row className="d-flex">
           {products.map((product) => (
@@ -40,19 +37,20 @@ const HomePage = () => {
               <CardC
                 imgCard={product.imagen}
                 titleCard={product.nombre}
-                productPrice={product.precio}                
+                productPrice={product.precio}
                 descCard={product.description}
-                idProduct ={product._id}
+                idProduct={product._id}
               />
             </Col>
           ))}
         </Row>
-      </Container><br /><br /><br />
+      </Container>
+      <br />
+      <br />
+      <br />
       <PublicidadC />
-     
-  </>
-  )
-
+    </>
+  );
 };
 
 export default HomePage;

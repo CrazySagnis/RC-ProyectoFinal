@@ -7,9 +7,9 @@ import ListaDeProductos from "./components/BaseDatosFalsa/ListaProductos";
 const App = () => {
   return (
     <>
-      <BarraDeNavegacion />
+      {/* <BarraDeNavegacion /> */}
       <BrowserRouter>
-        <ListaDeProductos />
+        {/* <ListaDeProductos /> */}
         <RViews />
       </BrowserRouter>
       <FooterC />

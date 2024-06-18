@@ -15,7 +15,8 @@ import Favoritos from "./Favoritos";
 import { CarritoContexto } from "./CarritoContexto";
 import { data } from "../components/BaseDatosFalsa/data"; // CAMBIAR ESTA RUTA POR LA NUEVA DE LA BASE DE DATOS.
 import "../css/Navbar.css";
-import { ModalIniciarSesion, ModalRegistrarse } from "./RegistroModal1";
+import RegisterModal from "../components/RegistroModal";
+import InicioSesionModal from "../components/InicioSesionModal";
 
 function realizarSolicitud(query, data) {
   return new Promise((resolve, reject) => {
@@ -147,9 +148,9 @@ function BarraDeNavegacion() {
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Container fluid>
-            <ModalIniciarSesion />
+            <InicioSesionModal />
 
-            <ModalRegistrarse />
+            <RegisterModal />
           </Container>
 
           <Nav className="mr-auto">

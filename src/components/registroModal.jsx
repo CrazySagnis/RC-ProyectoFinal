@@ -2,6 +2,8 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../backend/FireBseconfig";
 
 const RegisterModal1 = () => {
   const [show, setShow] = useState(false);
@@ -29,68 +31,82 @@ const RegisterModal1 = () => {
     const { userName, pass, Rpass } = formRegister;
     let newError = {};
 
-    if (!userName && !pass && !Rpass) {
-      newError = { ...error, allInputs: "errorAllinputs" };
-      setError(newError);
-    } else {
-      setError({});
-      if (!userName) {
-        newError = { ...error, userError: "errorUser" };
-      }
-      if (!pass) {
-        newError = { ...error, passError: "errorPass" };
-      }
-      if (!Rpass) {
-        newError = { ...error, rpassError: "errorRpass" };
-      }
-      if (Object.keys(newError).length) {
-        setError(newError);
-      }
-      if (userName && pass && Rpass) {
-        let newUser;
-        if (pass === Rpass) {
-          if (usersLocalStorage.length) {
-            const userExist = usersLocalStorage.find(
-              (user) => user.userName === userName
-            );
+    // if (!userName && !pass && !Rpass) {
+    //   newError = { ...error, allInputs: "errorAllinputs" };
+    //   setError(newError);
+    // } else {
+    //   setError({});
+    //   if (!userName) {
+    //     newError = { ...error, userError: "errorUser" };
+    //   }
+    //   if (!pass) {
+    //     newError = { ...error, passError: "errorPass" };
+    //   }
+    //   if (!Rpass) {
+    //     newError = { ...error, rpassError: "errorRpass" };
+    //   }
+    //   if (Object.keys(newError).length) {
+    //     setError(newError);
+    //   }
+    //   if (userName && pass && Rpass) {
+    //     let newUser;
+    //     if (pass === Rpass) {
+    //       if (usersLocalStorage.length) {
+    //         const userExist = usersLocalStorage.find(
+    //           (user) => user.userName === userName
+    //         );
 
-            if (userExist) {
-              alert("El usuario ya existe");
-              return;
-            }
+    //         if (userExist) {
+    //           alert("El usuario ya existe");
+    //           return;
+    //         }
 
-            const idUser =
-              usersLocalStorage[usersLocalStorage.length - 1].id + 1;
-            newUser = {
-              id: idUser,
-              userName,
-              pass,
-              role: "user",
-              login: false,
-              delete: false,
-              fav: [],
-              cart: [],
-            };
-          } else {
-            newUser = {
-              id: 1,
-              userName,
-              pass,
-              role: "user",
-              login: false,
-              delete: false,
-              fav: [],
-              cart: [],
-            };
-          }
-          usersLocalStorage.push(newUser);
-          localStorage.setItem("users", JSON.stringify(usersLocalStorage));
-          alert("Usuario creado con éxito");
-        } else {
-          alert("Las contraseñas no coinciden");
-        }
-      }
-    }
+    //         const idUser =
+    //           usersLocalStorage[usersLocalStorage.length - 1].id + 1;
+    //         newUser = {
+    //           id: idUser,
+    //           userName,
+    //           pass,
+    //           role: "user",
+    //           login: false,
+    //           delete: false,
+    //           fav: [],
+    //           cart: [],
+    //         };
+    //       } else {
+    //         newUser = {
+    //           id: 1,
+    //           userName,
+    //           pass,
+    //           role: "user",
+    //           login: false,
+    //           delete: false,
+    //           fav: [],
+    //           cart: [],
+    //         };
+    //       }
+    //       usersLocalStorage.push(newUser);
+    //       localStorage.setItem("users", JSON.stringify(usersLocalStorage));
+    //       alert("Usuario creado con éxito");
+    //     } else {
+    //       alert("Las contraseñas no coinciden");
+    //     }
+    //   }
+    // }
+
+    createUserWithEmailAndPassword(auth, userName, pass)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        // ...
+        alert("Usuario Logeado");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        alert("Usuario ya Registrado");
+      });
   };
 
   return (
@@ -107,8 +123,8 @@ const RegisterModal1 = () => {
 
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3" controlId="formBasicUser">
-              <Form.Label>Usuario </Form.Label>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>email</Form.Label>
               <Form.Control
                 className={
                   error.allInputs === "errorAllinputs" ||

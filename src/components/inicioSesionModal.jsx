@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import {
+  getAuth,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../../backend/FireBseconfig";
 
 const InicioSesionModal = () => {
   const LoginModal = () => {
@@ -32,32 +39,50 @@ const InicioSesionModal = () => {
       ev.preventDefault();
       const { userName, pass } = formLogin;
 
-      const userExist = usersLocalStorage.find(
-        (user) => user.userName === userName
-      );
+      // const userExist = usersLocalStorage.find(
+      //   (user) => user.userName === userName
+      // );
 
-      if (!userExist) {
-        return alert("Usuario y/o contraseña no coinciden. USUARIO");
-      }
+      // if (!userExist) {
+      //   return alert("Usuario y/o contraseña no coinciden. USUARIO");
+      // }
 
-      if (pass === userExist.pass) {
-        const userIndex = usersLocalStorage.findIndex(
-          (user) => user.id === userExist.id
-        );
-        userExist.login = true;
+      // if (pass === userExist.pass) {
+      //   const userIndex = usersLocalStorage.findIndex(
+      //     (user) => user.id === userExist.id
+      //   );
+      //   userExist.login = true;
 
-        usersLocalStorage[userIndex] = userExist;
-        localStorage.setItem("users", JSON.stringify(usersLocalStorage));
-        localStorage.setItem("userLogin", JSON.stringify(userExist));
+      //   usersLocalStorage[userIndex] = userExist;
+      //   localStorage.setItem("users", JSON.stringify(usersLocalStorage));
+      //   localStorage.setItem("userLogin", JSON.stringify(userExist));
 
-        if (userExist.role === "admin") {
-          window.location.href = "home-admin";
-        } else {
-          window.location.href = "home-user";
-        }
-      } else {
-        return alert("Usuario y/o contraseña no coinciden. CONTRASEÑA ");
-      }
+      //   if (userExist.role === "admin") {
+      //     window.location.href = "home-admin";
+      //   } else {
+      //     window.location.href = "home-user";
+      //   }
+      // } else {
+      //   return alert("Usuario y/o contraseña no coinciden. CONTRASEÑA ");
+      // }
+      signInWithEmailAndPassword(auth, userName, pass)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // ...
+          alert("Usuario Logeado");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert("Usuario/Contraseña incorrecto");
+        });
+    };
+
+    const handlePasswordReset = () => {
+      const email = prompt("Por favor ingresa tu email");
+      sendPasswordResetEmail(auth, email);
+      alert("Codigo enviado");
     };
 
     useEffect(() => {
@@ -99,6 +124,9 @@ const InicioSesionModal = () => {
                   />
                 </Form.Group>
               </Form>
+              <li>
+                <a href="/recovery">Olvidde mi Contraseña</a>
+              </li>
             </Modal.Body>
 
             <Modal.Footer>
