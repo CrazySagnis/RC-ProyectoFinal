@@ -1,0 +1,88 @@
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  padding: 0 20px;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000;
+}
+
+.navbar-nav .nav-link {
+  color: #000;
+  font-size: 1.2em;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  color: #000;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-right: 20px;
+}
+
+.icon-cart {
+  width: 30px;
+  height: 30px;
+}
+
+.count-products {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #000;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.dropdown-menu {
+  padding: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 400px;
+}
+
+.dropdown-item {
+  font-size: 1em;
+  color: #000;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
