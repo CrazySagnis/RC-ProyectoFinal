@@ -31,5 +31,5 @@ const RecoveryPass = () => {
     </>
   );
 };
-
+a;
 export default RecoveryPass;
