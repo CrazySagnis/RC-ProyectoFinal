@@ -3,8 +3,9 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import { useEffect, useState } from "react";
 
-const adminUserPage = () => {
+const AdminUserPage = () => {
   const [show, setShow] = useState(false);
   const [dataUser, setDataUser] = useState({});
   const usersLocalStorage = JSON.parse(localStorage.getItem("users")) || [];
@@ -140,4 +141,4 @@ const adminUserPage = () => {
     );
   };
 };
-export default adminUserPage;
+export default AdminUserPage;
