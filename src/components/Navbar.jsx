@@ -147,7 +147,7 @@ function BarraDeNavegacion() {
 
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
-          <Container fluid>
+          <Container fluid className="d-flex ">
             <InicioSesionModal />
 
             <RegisterModal />

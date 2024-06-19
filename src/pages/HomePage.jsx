@@ -5,6 +5,7 @@ import CardC from "../components/CardC";
 import { titlePage } from "../helpers/titlePage";
 import { useApi } from "../helpers/useApi";
 import CarrouselC from "../components/CarrouselC";
+import Navbar from "../components/Navbar";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -26,7 +27,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Nav />
+      <Navbar />
       <CarrouselC />
       <CardC />
 
